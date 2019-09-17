@@ -1,0 +1,69 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication21
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int N, i, p;
+            string C;
+            string[] sides = new string[4] { "север", "запад", "юг", "восток" };
+            Console.Write("Введите исходное направление робота(север/запад/юг/восток): ");
+            C = Console.ReadLine();
+            Console.Write("Введите команду для изменения направления робота(0 — продолжать движение/1 — поворот налево/(-1) — поворот направо): ");
+            N = int.Parse(Console.ReadLine());
+            i = 0;
+            switch (C)
+            {
+                case "север":
+                    C = sides[0];
+                    i = 0;
+                    break;
+                case "запад":
+                    C = sides[1];
+                    i = 1;
+                    break;
+                case "юг":
+                    C = sides[2];
+                    i = 2;
+                    break;
+                case "восток":
+                    C = sides[3];
+                    i = 3;
+                    break;
+            }
+            p = i;
+            switch (N)
+            {
+                case 1:
+                    if (p == 3)
+                    {
+                        C = sides[0];
+                    }
+                    else
+                    {
+                        C = sides[p + 1];
+                    }
+                    break;
+                case -1:
+                    if (p == 0)
+                    {
+                        C = sides[3];
+                    }
+                    else
+                    {
+                        C = sides[p - 1];
+                    }
+                    break;
+            }
+            Console.Write("Конечное направление робота: ");
+            Console.WriteLine(C);
+            Console.ReadKey();
+        }
+    }
+}
