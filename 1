@@ -1,0 +1,50 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SoloLearn
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string[] m = new string[12] { " января", " февраля", " марта", " апреля", " мая", " июня", " июля", " августа", " сентября", " октября", " ноября", " декабря" };
+            string[] de = new string[9] { "Первое", "Второе", "Третье", "Четвертое", "Пятое", "Шестое", "Седьмое", "Восьмое", "Девятое" };
+            string[] de1 = new string[9] { "первое", "второе", "третье", "четвертое", "пятое", "шестое", "седьмое", "восьмое", "девятое" };
+            string[] dd = new string[2] { "Двадцать ", "Тридцать " };
+            string[] dm = new string[3] { "Десятое", "Двадцатое", "Тридцатое" };
+            string[] dmm = new string[9] { "Одиннадцатое", "Двенадцатое", "Тринадцатое", "Четырнадцатое", "Пятнадцатое", "Шестнадцатое", "Семнадцатое", "Восемнадцатое", "Девятнадцатое" };
+            int a, d, i, j, k, f, n;
+            Console.Write("Введите число месяца: ");
+            a = int.Parse(Console.ReadLine());
+            Console.Write("Введите месяц: ");
+            d = int.Parse(Console.ReadLine());
+            if (a < 20 && a > 10)
+            {
+                Console.Write(dmm[(a % 10) - 1]);
+            }
+            else
+            {
+                if (a > 20 && a != 30)
+                {
+                    Console.Write(dd[(a / 10) - 2]);
+                    Console.Write(de1[(a % 10) - 1]);
+                }
+                else
+                {
+                    if (a < 10)
+                    {
+                        Console.Write(de[a - 1]);
+                    }
+                    else
+                    {
+                        Console.Write(dm[(a / 10) - 1]);
+                    }
+                }
+            }
+            Console.WriteLine(m[d - 1]);
+        }
+    }
+}
