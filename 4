@@ -1,0 +1,37 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SoloLearn
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string[] s = new string[9] { "Сто ", "Двести ", "Триста ", "Четыреста ", "Пятьсот ", "Шестьсот ", "Семьсот ", "Восемьсот ", "Девятьсот " };
+            string[] d = new string[10] { " ", "десять ", "двадцать ", "тридцать ", "сорок ", "пятьдесят ", "шестьдесят ", "семьдесят ", "восемьдесят ", "девяносто " };
+            string[] e = new string[10] { " ", "один", "два", "три", "четыре", "пять", "шесть", "семь", "восемь", "девять" };
+            string[] m = new string[9] { "одиннадцать", "двенадцать", "тринадцать", "четырнадцать", "пятнадцать", "шестнадцать", "семнадцать", "восемнадцать", "девятнадцать" };
+            int a, i, j, k, f;
+            Console.Write("Введите число: ");
+            a = int.Parse(Console.ReadLine());
+            i = (a / 100) - 1;
+            j = a % 100;
+            Console.Write(s[i]);
+            if (j < 20 && j > 10)
+            {
+                j = (j % 10) - 1;
+                Console.WriteLine(m[j]);
+            }
+            else
+            {
+                k = (a / 10) % 10;
+                f = a % 10;
+                Console.Write(d[k]);
+                Console.WriteLine(e[f]);
+            }
+        }
+    }
+}
